@@ -1,10 +1,10 @@
-import BaseLayout from "../layouts/BaseLayout";
-import Intro from "../components/Home/Intro";
+import BaseLayout from '../layouts/BaseLayout';
+import Intro from '../components/Home/Intro';
 
 export default function Home() {
-    return (
-        <BaseLayout>
-            <Intro />
-        </BaseLayout>
-    )
-    }
+  return (
+    <BaseLayout>
+      <Intro />
+    </BaseLayout>
+  );
+}
