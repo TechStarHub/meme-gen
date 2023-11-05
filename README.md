@@ -1,8 +1,25 @@
-# React + Vite
+<img align="center" src="./media/MemeGen.gif" width="300"/>
+<h1 align="center"> MemeGen </h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+A Meme generating website written in React, for beginners to learn React. 
+</p>
 
-Currently, two official plugins are available:
+## 📌 Introduction
+This project is for beginners to learn React. It is a simple meme generating website, where you can add your own text to the meme and download it.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎃 Description
+
+The brand assets for this project is present in the `src\assets\brand` folder. 
+
+## 🌳 Figma Design 
+Follow the design link to get the design of the website. Try to make the website as close to the design as possible. 
+### [***Design Link 👇***](https://www.figma.com/file/2CFGWsSol6c6SwDZ9PaaD1/MemeGen?type=design&node-id=0%3A1&mode=design&t=ln9sdKuNftajEeLs-1)
+https://www.figma.com/file/2CFGWsSol6c6SwDZ9PaaD1/MemeGen?type=design&node-id=0%3A1&mode=design&t=ln9sdKuNftajEeLs-1
+
+## 👓 Rules to follow 
+
+- You can use any library you want.
+- The brand assets for this project is present in the `src\assets\brand` folder. Please use the assets from there for logo, favicon, etc. 
+
+
