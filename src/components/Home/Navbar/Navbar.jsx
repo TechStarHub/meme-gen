@@ -3,18 +3,21 @@ import '../Navbar/Navbar.css';
 import DesktopLogo from '../../../assets/brand/MemeGen-M-bg_removed-cropped.png';
 import TabletLogo from '../../../assets/brand/Tab_Logo-removebg.png';
 import { Link } from 'react-router-dom';
-import { FaAlignJustify } from 'react-icons/fa6';
+// import { FaAlignJustify } from 'react-icons/fa6';
 import { IoClose } from 'react-icons/io5';
 import { useState } from 'react';
+import { HiMenu } from "react-icons/hi";
+import { HiDotsVertical } from "react-icons/hi";
+
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [pic, setPic] = useState(<FaAlignJustify />);
+  const [pic, setPic] = useState(<HiMenu/>);
 
   const menu = () => {
     if (menuOpen) {
       setMenuOpen(!menuOpen);
-      setPic(<FaAlignJustify />);
+      setPic(<HiMenu/>);
     } else {
       setMenuOpen(!menuOpen);
       setPic(<IoClose />);
@@ -32,6 +35,10 @@ export default function Navbar() {
             </picture>
           </Link>
         </div>
+        <div className="icon-menu">
+           <HiDotsVertical className={`${menuOpen ? 'hidden':'icon'}`}/>  
+          </div>
+
         <div className="hamburger-menu">
           <button
             onClick={() => {
