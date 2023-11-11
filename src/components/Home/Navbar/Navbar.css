@@ -1,11 +1,13 @@
 .main-nav {
   font-family: monospace;
   font-size: 20px;
+ 
 }
 
 .logo img {
   max-width: 100%;
   height: 50px;
+
 }
 
 nav {
@@ -47,16 +49,40 @@ a {
   font-size: 25px;
   font-weight: bold;
   color: red;
+  margin:6px;
+
 }
 .hamburger-menu span {
   height: 0.4rem;
   width: 100%;
   background-color: red;
   border-radius: 0.2rem;
+  
+}
+.icon-menu{
+  display: none;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  position: absolute;
+  top:2;
+  right:0;
+  margin-right: 22px;
+  margin-top: 8.5px;
+
+}
+.icon{
+  color:red;
+  margin:6px
+}
+.hidden{
+  display: none;
 }
 @media (max-width: 700px) {
   nav .hamburger-menu button {
     display: flex;
+    justify-content:center;
+    align-items: center;
   }
   nav {
     flex-direction: column;
@@ -81,4 +107,8 @@ a {
   .nav li a {
     margin: 0.2rem 0.5rem;
   }
+  .icon-menu{
+    display:flex
+  }
+ 
 }
