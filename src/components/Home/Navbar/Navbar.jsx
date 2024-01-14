@@ -25,7 +25,7 @@ export default function Navbar() {
   };
 
   return (
-    <div>
+    <div className='main'>
       <nav className="main-nav">
         <div className="logo">
           <Link to="/">

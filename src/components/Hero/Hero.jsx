@@ -41,7 +41,7 @@ export default function Hero() {
       </button>
     </Link>
     </div>
-
+    
     </>
   )
 }
