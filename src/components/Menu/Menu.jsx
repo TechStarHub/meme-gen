@@ -7,45 +7,43 @@ import {useDropzone} from 'react-dropzone'
 
 export default function Menu() {
   const [backgroundImage, setBackgroundImage] = useState('');
-  const onDrop=()=>{
-  
-
-    
-  }
-  const handleFileChange = (files) => {
+  const onDrop=(files)=>{
     const file = files[0];
-    if (file) {
+    
       const reader = new FileReader();
-      reader.onload = (event) => {
-        setBackgroundImage(event.target.result);
+      reader.onload = function(e)  {
+        setBackgroundImage(e.target.result);
       };
       reader.readAsDataURL(file);
-      console.log(file)
-    }
-  };
+      
+  }
+  
  
-  const {getRootProps, getInputProps} = useDropzone({handleFileChange,multiple:false,accept:'imgae/*'})
+  const {getRootProps, getInputProps,isDragActive} = useDropzone({onDrop,multiple:false,accept:'imgae/*'})
  
 
   return (
-    <div className="container flex w-[500px] h-[500px] justify-center items-center border-2 border-black">
-    <div {...getRootProps()}>
+    <div className="container flex w-full h-[500px] justify-center items-center border-2 border-black">
+    <div {...getRootProps()} className='border border-red-500 w-full h-full'>
       <input {...getInputProps()} />
-      {backgroundImage && (
-        <div>
+      {backgroundImage ? (
+        <div className=' w-full h-full'>
           <div
             style={{
               backgroundImage: `url(${backgroundImage})`,
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
-              width: '100%',
-              height: '300px', // Adjust the height as needed
+              backgroundPosition:'center',
+              width: '50%',
+              height: 'inherit', // Adjust the height as needed
             }}
           ></div>
-          <button onClick={downloadImage}>Download Image</button>
+         
         </div>
-      )}
+      )
+      :
       <p>Drag 'n' drop some files here, or click to select files</p>
+      }
     </div>
     </div>
   )
