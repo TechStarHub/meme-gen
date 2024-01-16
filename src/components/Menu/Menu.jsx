@@ -7,6 +7,8 @@ import {useDropzone} from 'react-dropzone'
 
 export default function Menu() {
   const [backgroundImage, setBackgroundImage] = useState('');
+  const [UpperText, setUpperText] = useState('')
+  const[LowerText,setLowerText]=useState('')
   const onDrop=(files)=>{
     const file = files[0];
     
@@ -23,28 +25,49 @@ export default function Menu() {
  
 
   return (
-    <div className="container flex w-full h-[500px] justify-center items-center border-2 border-black">
-    <div {...getRootProps()} className='border border-red-500 w-full h-full'>
+    <div className="container  lg:flex w-full h-[700px] justify-center items-center border-2 bg-slate-200">
+    <div {...getRootProps()} className=' w-full sm:h-3/4  h-1/2 border border-red-500 flex justify-center items-center'>
       <input {...getInputProps()} />
       {backgroundImage ? (
-        <div className=' w-full h-full'>
-          <div
+        <div className='w-full h-full '>
+          <div className='relative'
             style={{
               backgroundImage: `url(${backgroundImage})`,
-              backgroundSize: 'cover',
+              backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition:'center',
-              width: '50%',
-              height: 'inherit', // Adjust the height as needed
+              Width: '100%',
+              height: '100%', // Adjust the height as needed
             }}
-          ></div>
+          >
+            <h1 className='absolute top-0 px-20'>
+           {UpperText}
+          </h1>
+          <h1 className='absolute bottom-0 px-20'>
+            {LowerText}
+          </h1>
+          </div>
+          
          
         </div>
       )
       :
-      <p>Drag 'n' drop some files here, or click to select files</p>
+      <p >Drag 'n' drop some files here, or click to select files</p>
       }
     </div>
+   <div className=' w-full h-auto  sm:pa sm:justify-center items-start flex flex-col sm:flex-row  px-2 gap-3'>
+   <label htmlFor="">
+      <p>UpperText</p>
+        <input type="text" className='w-full' onChange={(e)=>setUpperText(e.target.value)} name='' id=''/>
+   </label>
+   <label htmlFor="">
+      <p>LowerText</p>
+      <input type="text" className='w-full' onChange={(e)=>setLowerText(e.target.value)} name='' id=''/>
+   </label>
+   
+   
+   </div>
     </div>
+
   )
 }
