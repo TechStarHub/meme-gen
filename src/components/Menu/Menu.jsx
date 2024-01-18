@@ -9,6 +9,8 @@ export default function Menu() {
   const [backgroundImage, setBackgroundImage] = useState('');
   const [UpperText, setUpperText] = useState('')
   const[LowerText,setLowerText]=useState('')
+  const [fontSize, setFontSize] = useState(16);
+
   const onDrop=(files)=>{
     const file = files[0];
     
@@ -22,6 +24,13 @@ export default function Menu() {
   
  
   const {getRootProps, getInputProps,isDragActive} = useDropzone({onDrop,multiple:false,accept:'imgae/*'})
+
+  const increaseFontSize = () => {
+    setFontSize(fontSize + 2); // Increase font size by 2 units
+  };
+  const decreaseFontSize = () => {
+    setFontSize(fontSize - 2); // Increase font size by 2 units
+  };
  
 
   return (
@@ -40,10 +49,13 @@ export default function Menu() {
               height: '100%', // Adjust the height as needed
             }}
           >
-            <h1 className='absolute top-0 px-20'>
+            <h1 className='absolute top-0 px-20'
+            style={{ fontSize: `${fontSize}px` }}
+            >
            {UpperText}
           </h1>
-          <h1 className='absolute bottom-0 px-20'>
+          <h1 className='absolute bottom-0 px-20'
+          style={{ fontSize: `${fontSize}px` }}>
             {LowerText}
           </h1>
           </div>
@@ -64,7 +76,8 @@ export default function Menu() {
       <p>LowerText</p>
       <input type="text" className='w-full' onChange={(e)=>setLowerText(e.target.value)} name='' id=''/>
    </label>
-   
+   <button onClick={increaseFontSize}>Increase Font Size</button>
+   <button onClick={decreaseFontSize}>Increase Font Size</button>
    
    </div>
     </div>
