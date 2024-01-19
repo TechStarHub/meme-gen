@@ -25,7 +25,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className='main'>
+    <div className='main z-10'>
       <nav className="main-nav">
         <div className="logo">
           <Link to="/">
