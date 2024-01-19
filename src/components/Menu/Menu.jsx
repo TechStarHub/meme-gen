@@ -1,6 +1,12 @@
 import React, { useState,useRef } from 'react';
 import { saveAs } from 'file-saver';
 import {useDropzone} from 'react-dropzone'
+import { AiOutlineFontSize } from "react-icons/ai";
+import { ImFontSize } from "react-icons/im";
+import { FaDownload } from "react-icons/fa";
+import { toPng } from 'html-to-image';
+import html2canvas from 'html2canvas';
+import {download} from 'downloadjs'
 
 
 
@@ -31,11 +37,26 @@ export default function Menu() {
   const decreaseFontSize = () => {
     setFontSize(fontSize - 2); // Increase font size by 2 units
   };
+
  
 
+  const downloadImage = () => {
+    const node = document.getElementById('image-download');
+
+    html2canvas(node)
+      .then((canvas) => {
+        const dataURL = canvas.toDataURL();
+        const a = document.createElement('a');
+        a.href = dataURL;
+        a.download = 'custom-image.png';
+        a.click();
+      })
+      .catch((error) => console.log("Error:", error));
+  };
+
   return (
-    <div className="container  lg:flex w-full h-[700px] justify-center items-center border-2 bg-slate-200">
-    <div {...getRootProps()} className=' w-full sm:h-3/4  h-1/2 border border-red-500 flex justify-center items-center'>
+    <div className="container  lg:flex w-full h-[700px] justify-center items-center   overflow-hidden ">
+    <div {...getRootProps()} className=' w-full sm:w-6/12  sm:h-3/4  h-1/2 border border-blue-500 flex justify-center items-center' id='image-download'>
       <input {...getInputProps()} />
       {backgroundImage ? (
         <div className='w-full h-full '>
@@ -49,8 +70,8 @@ export default function Menu() {
               height: '100%', // Adjust the height as needed
             }}
           >
-            <h1 className='absolute top-0 px-20'
-            style={{ fontSize: `${fontSize}px` }}
+            <h1 className='absolute top-0 px-20 '
+            style={{ fontSize: `${fontSize}px`}}
             >
            {UpperText}
           </h1>
@@ -67,18 +88,23 @@ export default function Menu() {
       <p >Drag 'n' drop some files here, or click to select files</p>
       }
     </div>
-   <div className=' w-full h-auto  sm:pa sm:justify-center items-start flex flex-col sm:flex-row  px-2 gap-3'>
-   <label htmlFor="">
-      <p>UpperText</p>
-        <input type="text" className='w-full' onChange={(e)=>setUpperText(e.target.value)} name='' id=''/>
+   <div className='w-full sm:w-6/12 flex flex-col  justify-center pt-[50px]  items-center gap-4'>
+   <label htmlFor=""  className='w-full sm:w-6/12'>
+      <p className='text-2xl font-bold '>UpperText</p>
+        <input type="text" className=' w-full border-2 border-yellow-400 ' onChange={(e)=>setUpperText(e.target.value)} name='' id=''/>
    </label>
-   <label htmlFor="">
-      <p>LowerText</p>
-      <input type="text" className='w-full' onChange={(e)=>setLowerText(e.target.value)} name='' id=''/>
+   <label htmlFor="" className=' w-full sm:w-6/12'>
+      <p className='text-2xl font-bold '>LowerText</p>
+      <input type="text"  className=' w-full border-2 border-yellow-400 ' onChange={(e)=>setLowerText(e.target.value)} name='' id=''/>
    </label>
-   <button onClick={increaseFontSize}>Increase Font Size</button>
-   <button onClick={decreaseFontSize}>Increase Font Size</button>
-   
+  <div className='flex w-full justify-evenly items-center'>
+      <ImFontSize  className='border border-blue-500 text-4xl text-white bg-blue-400' onClick={increaseFontSize}/>
+      <AiOutlineFontSize  className='border border-blue-500 text-4xl text-white bg-blue-400' onClick={decreaseFontSize}/>
+  </div>
+  <label htmlFor="" className=' w-full sm:w-6/12'>
+  <FaDownload className='border border-blue-500 text-4xl text-white bg-blue-400 w-full' onClick={downloadImage}/>
+  </label>
+  
    </div>
     </div>
 
