@@ -56,7 +56,7 @@ export default function Menu() {
 
   return (
     <div className="container  lg:flex w-full h-[800px]   justify-center items-center bg-slate-100   overflow-hidden ">
-    <div {...getRootProps()} className=' w-full lg:w-6/12  md:h-3/4  h-1/ bg-slate-300 flex justify-center items-center' id='image-download'>
+    <div {...getRootProps()} className=' w-full lg:w-6/12  md:h-3/4  h-1/2 bg-slate-300 flex justify-center items-center' id='image-download'>
       <input {...getInputProps()} />
       {backgroundImage ? (
         <div className='w-full h-full '>
