@@ -55,8 +55,8 @@ export default function Menu() {
   };
 
   return (
-    <div className="container  lg:flex w-full h-[700px] justify-center items-center   overflow-hidden ">
-    <div {...getRootProps()} className=' w-full sm:w-6/12  sm:h-3/4  h-1/2 border border-blue-500 flex justify-center items-center' id='image-download'>
+    <div className="container  lg:flex w-full h-[800px]   justify-center items-center   overflow-hidden ">
+    <div {...getRootProps()} className=' w-full lg:w-6/12  md:h-3/4  h-1/2 border border-blue-500 flex justify-center items-center' id='image-download'>
       <input {...getInputProps()} />
       {backgroundImage ? (
         <div className='w-full h-full '>
@@ -88,21 +88,23 @@ export default function Menu() {
       <p >Drag 'n' drop some files here, or click to select files</p>
       }
     </div>
-   <div className='w-full sm:w-6/12 flex flex-col  justify-center pt-[50px]  items-center gap-4'>
-   <label htmlFor=""  className='w-full sm:w-6/12'>
+   <div className='w-full lg:w-6/12 md:h-auto flex flex-col md:flex-row lg:flex-col justify-center pt-[50px]  items-center gap-4'>
+   <div className='flex flex-col w-full justify-center items-center '>
+   <label htmlFor=""  className='w-full lg:w-6/12 xl:w-9/12'>
       <p className='text-2xl font-bold '>UpperText</p>
         <input type="text" className=' w-full border-2 border-yellow-400 ' onChange={(e)=>setUpperText(e.target.value)} name='' id=''/>
    </label>
-   <label htmlFor="" className=' w-full sm:w-6/12'>
+   <label htmlFor="" className=' w-full lg:w-6/12 xl:w-9/12'>
       <p className='text-2xl font-bold '>LowerText</p>
       <input type="text"  className=' w-full border-2 border-yellow-400 ' onChange={(e)=>setLowerText(e.target.value)} name='' id=''/>
    </label>
+   </div>
   <div className='flex w-full justify-evenly items-center'>
       <ImFontSize  className='border border-blue-500 text-4xl text-white bg-blue-400' onClick={increaseFontSize}/>
       <AiOutlineFontSize  className='border border-blue-500 text-4xl text-white bg-blue-400' onClick={decreaseFontSize}/>
   </div>
   <label htmlFor="" className=' w-full sm:w-6/12'>
-  <FaDownload className='border border-blue-500 text-4xl text-white bg-blue-400 w-full' onClick={downloadImage}/>
+  <FaDownload className='border border-blue-500 text-4xl text-white bg-blue-400 w-full rounded-xl' onClick={downloadImage}/>
   </label>
   
    </div>
